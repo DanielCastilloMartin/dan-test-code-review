@@ -1,1 +1,9 @@
+public:
+  key:
+    value: M1BMbTNoU0tvMTFaVm1NUnplYjJVN3p0QzVIQ1ZYdnpLa1hyMzFBSXdXUQ==
+
+endpoint:
+  url:
+    value: https://api.unsplash.com/collections
+
 
