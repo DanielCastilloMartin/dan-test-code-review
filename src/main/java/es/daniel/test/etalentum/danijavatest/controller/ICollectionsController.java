@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequestMapping("/dan/etalentum/collection")
+@RequestMapping("/rest/")
 public interface ICollectionsController {
 
-    @GetMapping("filter/{filter}")
+    @GetMapping("/getCollectionFilter/{filter}")
     ResponseEntity<Object> getCollectionFiltered(@PathVariable("filter") String filter);
 }

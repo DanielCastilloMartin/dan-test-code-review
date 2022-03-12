@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class CollectionsConfig {
 
-    @Value("${adn.header.wsse.url}")
+    @Value("${public.key.value}")
     private String publicKey;
 
     @Value("${endpoint.url.value}")
