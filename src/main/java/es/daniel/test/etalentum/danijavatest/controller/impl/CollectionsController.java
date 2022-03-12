@@ -1,5 +1,6 @@
-package es.daniel.test.etalentum.danijavatest.controller;
+package es.daniel.test.etalentum.danijavatest.controller.impl;
 
+import es.daniel.test.etalentum.danijavatest.controller.ICollectionsController;
 import es.daniel.test.etalentum.danijavatest.service.ICollectionsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
