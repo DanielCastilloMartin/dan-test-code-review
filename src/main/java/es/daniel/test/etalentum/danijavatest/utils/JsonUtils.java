@@ -1,9 +1,8 @@
 package es.daniel.test.etalentum.danijavatest.utils;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -11,8 +10,13 @@ import java.util.List;
 
 public class JsonUtils {
 
-    public static <T>List<T> convertFromJsonToList(String json, TypeReference<List<T>> listObject) throws JsonParseException, JsonMappingException, IOException{
+    private JsonUtils(){
+        throw new IllegalStateException();
+    }
+
+    public static <T>List<T> convertFromJsonToList(String json, TypeReference<List<T>> listObject) throws IOException{
         return getObjectMapper().readValue(json, listObject);
+
     }
 
     public static <T> T covertFromJsonToObject(String json, Class<T> object) throws IOException{
@@ -26,7 +30,9 @@ public class JsonUtils {
     }
 
     private static ObjectMapper getObjectMapper(){
-        return new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+        return objectMapper;
 
     }
 
