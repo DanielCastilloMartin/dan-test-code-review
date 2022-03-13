@@ -40,23 +40,19 @@ public class CollectionsService implements ICollectionsService {
         } catch (URISyntaxException | IOException | InterruptedException e) {
             log.error("Se ha producido un error en la request {}", e.getMessage());
             Thread.currentThread().interrupt();
+
         }
+        return new ResponseEntity<>(new GenericExit(200, null, applyFilterService(filter, dtoList)), HttpStatus.OK);
 
-        return new ResponseEntity<>(new GenericExit(200, null, dtoList), HttpStatus.OK);
     }
-
 
     private List<CollectionDto> applyFilterService(String filter, List<CollectionDto> collectionDtoList){
         List<CollectionDto> collectionDtoListAux = new ArrayList<>();
-        List<Datos> datosOrdenVigenciaN = consultaTestMayoristaDatosResponse
-                .stream()
-                .filter(p -> Objects.nonNull(p.getFechaFin()))
-                .filter(p -> p.getIndVigencia().equalsIgnoreCase(IND_VIGENCIA_N))
-                .sorted(Comparator.comparing(Datos::getFechaFin).reversed())
-                .collect(Collectors.toList());
-        if(collectionDtoList != null && !collectionDtoList.isEmpty()){
-            collectionDtoListAux = collectionDtoList.stream().filter(CollectionUtils::filterCollection).
 
+        if(collectionDtoList != null && !collectionDtoList.isEmpty()){
+            collectionDtoListAux = collectionDtoList.stream()
+                    .filter(p -> CollectionUtils.filterCollection(p, filter))
+                    .collect(Collectors.toList());
 
         }
 
