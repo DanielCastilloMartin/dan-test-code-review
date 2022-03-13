@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>es.danie.test.etalentum</groupId>
 	<artifactId>dan-java-test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>dan-java-test</name>
 	<description>Test from Etalentum</description>
 	<properties>

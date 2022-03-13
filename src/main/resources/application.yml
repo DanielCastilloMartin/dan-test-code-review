@@ -1,3 +1,8 @@
+spring:
+  profiles:
+    active: dev
+
+
 public:
   key:
     value: M1BMbTNoU0tvMTFaVm1NUnplYjJVN3p0QzVIQ1ZYdnpLa1hyMzFBSXdXUQ==
@@ -5,3 +10,6 @@ public:
 endpoint:
   url:
     value: https://api.unsplash.com/collections
+
+server:
+  port: 9000
